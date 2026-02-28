@@ -895,4 +895,20 @@ main {
     .card-grid {
         grid-template-columns: 1fr;
     }
+
+   .marquee-slide {
+        width: 240px;
+        height: 150px;
+    }
+
+    .marquee-section::before,
+    .marquee-section::after {
+        width: 60px;
+    }
+
+    .marquee-track {
+        animation-duration: 20s;
+    }
+
+   
 }
