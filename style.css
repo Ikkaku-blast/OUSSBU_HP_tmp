@@ -896,7 +896,7 @@ main {
         grid-template-columns: 1fr;
     }
 
-   .marquee-slide {
+    .marquee-slide {
         width: 240px;
         height: 150px;
     }
@@ -909,6 +909,4 @@ main {
     .marquee-track {
         animation-duration: 20s;
     }
-
-   
 }
