@@ -295,6 +295,90 @@ main {
     transform: translateY(-2px);
 }
 
+/* --- Photo Marquee --- */
+.marquee-section {
+    position: relative;
+    overflow: hidden;
+    padding: 2rem 0;
+    background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 50%, var(--bg-primary) 100%);
+}
+
+/* Fade edges */
+.marquee-section::before,
+.marquee-section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 120px;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.marquee-section::before {
+    left: 0;
+    background: linear-gradient(90deg, var(--bg-primary) 0%, transparent 100%);
+}
+
+.marquee-section::after {
+    right: 0;
+    background: linear-gradient(270deg, var(--bg-primary) 0%, transparent 100%);
+}
+
+.marquee-track {
+    display: flex;
+    gap: 1.5rem;
+    animation: marquee-scroll 30s linear infinite;
+    width: max-content;
+}
+
+.marquee-slide {
+    flex-shrink: 0;
+    width: 320px;
+    height: 200px;
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    transition: var(--transition);
+    position: relative;
+}
+
+.marquee-slide::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 60%, rgba(10, 10, 15, 0.6) 100%);
+    pointer-events: none;
+    transition: var(--transition);
+}
+
+.marquee-slide:hover {
+    border-color: var(--border-glow);
+    box-shadow: var(--glow-purple);
+    transform: scale(1.03);
+}
+
+.marquee-slide:hover::after {
+    background: linear-gradient(180deg, transparent 70%, rgba(168, 85, 247, 0.3) 100%);
+}
+
+.marquee-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+@keyframes marquee-scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
 /* --- Section Styles --- */
 .section {
     padding: 5rem 0;
